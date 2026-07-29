@@ -84,6 +84,290 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+:root {
+  --ink: #1b2a22;
+  --accent: #3c6e47;
+  --accent-light: #e9f1ea;
+  --paper: #fafafa;
+  --muted: #6b6b6b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.wrap {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.site-header {
+  background: var(--ink);
+  color: #fff;
+  padding: 2.5rem 0;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  flex: 0 0 auto;
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border: 2px solid var(--accent);
+}
+
+.site-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.9rem;
+}
+
+.site-header .tagline {
+  margin: 0;
+  color: #d7e3da;
+}
+
+.site-header .location {
+  margin: 0.15rem 0 0;
+  color: #9fb3a5;
+  font-size: 0.9rem;
+}
+
+.site-nav {
+  background: #fff;
+  border-bottom: 1px solid #e2e2e2;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-nav .wrap {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.site-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+}
+
+main {
+  padding: 2.5rem 0 1rem;
+}
+
+section {
+  margin-bottom: 2.75rem;
+}
+
+section h2 {
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--accent-light);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid var(--accent-light);
+}
+
+.timeline li {
+  position: relative;
+  padding: 0 0 1.25rem 1.25rem;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -0.4rem;
+  top: 0.3rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline li.has-poster {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.poster-link {
+  flex: 0 0 auto;
+  display: block;
+  border-radius: 0.25rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.poster-link:hover,
+.poster-link:focus-visible {
+  transform: translateY(-2px);
+}
+
+.poster-thumb {
+  display: block;
+  width: 3.75rem;
+  height: 4.7rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.timeline h3 {
+  margin: 0 0 0.15rem;
+  font-size: 1rem;
+}
+
+.role-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plain-list li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #ececec;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem;
+}
+
+.skills-grid h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+}
+
+.imdb-link {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.imdb-link:hover {
+  text-decoration: underline;
+}
+
+#contact a {
+  color: var(--accent);
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+.site-footer {
+  border-top: 1px solid #e2e2e2;
+  padding: 1.5rem 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.easter-egg {
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.3;
+  z-index: 50;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.easter-egg:hover,
+.easter-egg:focus-visible {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.easter-egg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.easter-egg-dialog {
+  position: relative;
+  max-width: min(90vw, 420px);
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+}
+
+.easter-egg-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.easter-egg-dialog img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.easter-egg-dialog .dialog-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
